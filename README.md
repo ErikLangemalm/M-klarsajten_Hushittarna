@@ -1,2 +1,2 @@
-# M-klarsajten_Hushittarna
+# Maklarsajten_Hushittarna
 Final lab in the first programming course at KYH
