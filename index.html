@@ -28,32 +28,31 @@
 
   <div id="menu-icon">&#9776;</div>
 
-  <nav>
-
-    <a href="#">Sälja Bostad</a>
-
-    <a href="#">Köpa Bostad</a>
-
-    <a href="#">Login</a>
-
-  </nav>
+  <body>
+    <nav id="nav" class="navbar">
+      <a href="/" onclick="route(event)">Hem</a>
+      <a href="/maklare" onclick="route(event)">Mäklare</a>
+      <a href="/contact" onclick="route(event)">Kontakta oss</a>
+    </nav>
+    <section id="content"></section>
 
 
 
-  <div id="buttons-container">
+    <div id="buttons-container">
 
-    <button onclick="säljaBostad()">Sälja Bostad</button>
+      <button onclick="säljaBostad()">Sälja Bostad</button>
 
-    <button onclick="köpaBostad()">Köpa Bostad</button>
+      <button onclick="köpaBostad()">Köpa Bostad</button>
 
-  </div>
-
-
-
-  <script src="scripts.js"></script>
+    </div>
 
 
 
-</body>
+    <script src="scripts.js"></script>
+    <script src="app.js"></script>
+
+
+
+  </body>
 
 </html>

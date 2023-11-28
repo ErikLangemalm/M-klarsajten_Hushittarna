@@ -7,7 +7,7 @@ const route = async (event) => {
 };
 
 const routes = {
-  "/": "homePage.html",
+  "/": "index.html",
   "/maklare": "maklare.html",
   "/contact": "contact.html",
 };
