@@ -1,0 +1,84 @@
+/* styles.css */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+
+.property-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.property-list .property {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.property-list .property h3 {
+  margin: 0 0 10px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Sticky footer styles */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  /* Adjust this value to match your footer height */
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Add more styling as per your design requirements */
