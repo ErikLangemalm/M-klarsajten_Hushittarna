@@ -1,44 +1,34 @@
-var menuIcon = document.getElementById("menu-icon");
-
-var nav = document.querySelector("nav");
-
-
-
-menuIcon.addEventListener("click", toggleNav);
+const pages = {
+  home: "<h2>Välkommen till vår mäklarwebbplats!</h2><p>Vi hjälper dig hitta ditt drömhem.</p>",
+  listings: generateListingsPage(),
+  contact: "<h2>Kontakta oss</h2><p>Fyll i formuläret nedan för att kontakta oss:</p><form id='contactForm'><label for='name'>Namn:</label><input type='text' id='name' name='name' required><br><label for='email'>E-post:</label><input type='email' id='email' name='email' required><br><input type='submit' value='Skicka'></form>"
+};
 
 
+$(document).ready(function () {
+  loadPage('home');
+});
 
-function toggleNav() {
+// Lägg till klickhanterare för länkarna
+$(document).on('click', 'nav a', function (e) {
+  e.preventDefault(); // Förhindra standard beteende för länkar
+  const pageId = $(this).data('page'); // Hämta sidans ID från data-attribut
+  loadPage(pageId);
+});
 
-  if (nav.style.display === "" || nav.style.display === "none") {
+// Ladda innehåll på sidan
+function loadPage(page) {
+  $('#content').html(pages[page]);
+}
 
-    nav.style.display = "block";
+// Generera sidan med fastighetsannonser och ikoner
+function generateListingsPage() {
+  let listingsPage = "<h2>Fastighetsannonser</h2>";
 
-    menuIcon.innerHTML = "&#10006;"; // Cross icon
-
-  } else {
-
-    nav.style.display = "none";
-
-    menuIcon.innerHTML = "&#9776;"; // Hamburger icon
-
+  // Lägg till ikoner för 20 hus
+  for (let i = 1; i <= 20; i++) {
+    listingsPage += `<p><i class="fas fa-home listing-icon"></i>Hus ${i}</p>`;
   }
 
-}
-function säljaBostad() {
-
-  // Add functionality for "Sälja Bostad" button
-
-  alert("Sälja Bostad button clicked");
-
-}
-
-
-
-function köpaBostad() {
-
-  // Add functionality for "Köpa Bostad" button
-
-  alert("Köpa Bostad button clicked");
-
+  return listingsPage;
 }
