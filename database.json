@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "typ": "lägenhet",
+      "addres": "Test väg 1, Stockholm",
+      "kvm": 67,
+      "rum": 2,
+      "pris": 2500000,
+      "features": [
+        "1 badrum",
+        "altan",
+        ""
+      ]
+    },
+    {
+      "id": 2,
+      "typ": "Villa",
+      "addres": "Test gatan 12, Uppsala",
+      "kvm": 135,
+      "rum": 4,
+      "tomt": 500,
+      "prise": 4000000,
+      "features": [
+        "2 badrum",
+        "egen garage",
+        "gård"
+      ]
+    },
+    {
+      "id": 3,
+      "typ": "Radhus",
+      "addres": "super gatan 20, Bro",
+      "kvm": 105,
+      "rum": 3,
+      "tomt": 500,
+      "prise": 3000000,
+      "features": [
+        "2 badrum",
+        "garage",
+        "altan"
+      ]
+    },
+    {
+      "id": 4,
+      "typ": "lägenhet",
+      "addres": "Solnagatan 1, Solna ",
+      "kvm": 67,
+      "rum": 2,
+      "pris": 2700000,
+      "features": []
+    }
+  ]
+}
