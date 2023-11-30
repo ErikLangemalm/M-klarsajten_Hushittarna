@@ -1,59 +1,78 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="sv">
 
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>MakSite</title>
-
-  <link rel="stylesheet" type="text/css" href="styles.css">
-
+  <title>Mäklarwebbplats</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-
-
   <header>
-
-    <span>MakSite</span>
-
+    <h1>Mäklarwebbplats</h1>
+    <nav>
+      <ul>
+        <li><a href="#" data-page="home">Hem</a></li>
+        <li><a href="#" data-page="listings">Fastighetsannonser</a></li>
+        <li><a href="#" data-page="contact">Kontakt</a></li>
+        <li><a href="#" data-page="search">Sök</a></li>
+      </ul>
+    </nav>
   </header>
 
+  <main id="content">
+  </main>
+
+  <footer>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+
+    const pages = {
+      home: "<h2>Välkommen till vår mäklarwebbplats!</h2><p>Vi hjälper dig hitta ditt drömhem.</p>",
+      listings: generateListingsPage(),
+      contact: "<h2>Kontakta oss</h2><p>Fyll i formuläret nedan för att kontakta oss:</p><form id='contactForm'><label for='name'>Namn:</label><input type='text' id='name' name='name' required><br><label for='email'>E-post:</label><input type='email' id='email' name='email' required><br><input type='submit' value='Skicka'></form>",
+      search: "<h2>Sök</h2><p>Använd sökfältet nedan för att söka:</p><input type='text' id='searchInput' placeholder='Skriv in din sökning'><button onclick='search()'>Sök</button><p id='searchResult'></p>"
+    };
 
 
-  <div id="menu-icon">&#9776;</div>
+    $(document).ready(function () {
+      loadPage('home');
+    });
 
-  <nav>
-
-    <a href="#">Sälja Bostad</a>
-
-    <a href="#">Köpa Bostad</a>
-
-    <a href="#">Login</a>
-
-  </nav>
-
+    //klickhanterare för länkarna
+    $(document).on('click', 'nav a', function (e) {
+      e.preventDefault(); //förhindra standard beteende för länkar
+      const pageId = $(this).data('page');
+      loadPage(pageId);
+    });
 
 
-  <div id="buttons-container">
+    function loadPage(page) {
+      $('#content').html(pages[page]);
+    }
 
-    <button onclick="säljaBostad()">Sälja Bostad</button>
+    //sidan med fastighetsannonser och ikoner
+    function generateListingsPage() {
+      let listingsPage = "<h2>Fastighetsannonser</h2>";
 
-    <button onclick="köpaBostad()">Köpa Bostad</button>
+      for (let i = 1; i <= 20; i++) {
+        listingsPage += `<p><i class="fas fa-home listing-icon"></i>Hus ${i}</p>`;
+      }
 
-  </div>
+      return listingsPage;
+    }
 
-
-
-  <script src="scripts.js"></script>
-
-
-
+    // Sökfunktion
+    function search() {
+      const searchInput = $('#searchInput').val().toLowerCase();
+      const searchResult = searchInput ? `Resultat för sökning: "${searchInput}"` : 'Ingen sökning angiven';
+      $('#searchResult').text(searchResult);
+    }
+  </script>
 </body>
 
 </html>
