@@ -2,53 +2,63 @@
   "data": [
     {
       "id": 1,
-      "typ": "lägenhet",
+      "bostadsTyp": "lägenhet",
       "addres": "Test väg 1, Stockholm",
-      "kvm": 67,
-      "rum": 2,
-      "pris": 2500000,
-      "features": [
-        "1 badrum",
-        "altan",
-        ""
-      ]
+      "utgångsPris": 2500000,
+      "antalRum": 2,
+      "boarea": 67,
+      "balkong": "ja",
+      "våning": 4,
+      "hiss": "ja",
+      "byggnadsÅr": "1988",
+      "förråd": "ja",
+      "parkering": "ja",
+      "innerGård": "nej"
     },
     {
       "id": 2,
-      "typ": "Villa",
-      "addres": "Test gatan 12, Uppsala",
-      "kvm": 135,
-      "rum": 4,
-      "tomt": 500,
-      "prise": 4000000,
-      "features": [
-        "2 badrum",
-        "egen garage",
-        "gård"
-      ]
+      "bostadsTyp": "villa",
+      "addres": "solna väg 1, Stockholm",
+      "utgångsPris": 3500000,
+      "antalRum": 4,
+      "boarea": 100,
+      "uteplats": "ja",
+      "våning": 0,
+      "hiss": "nej",
+      "byggnadsÅr": "1990",
+      "förråd": "ja",
+      "parkering": "ja",
+      "innerGård": "ja"
     },
     {
       "id": 3,
-      "typ": "Radhus",
-      "addres": "super gatan 20, Bro",
-      "kvm": 105,
-      "rum": 3,
-      "tomt": 500,
-      "prise": 3000000,
-      "features": [
-        "2 badrum",
-        "garage",
-        "altan"
-      ]
+      "bostadsTyp": "radhus",
+      "addres": "lövgatan 9, Stockholm",
+      "utgångsPris": 3100000,
+      "antalRum": 3,
+      "boarea": 84,
+      "balkong": "ja",
+      "våning": 1,
+      "hiss": "nej",
+      "byggnadsÅr": "1987",
+      "förråd": "ja",
+      "parkering": "ja",
+      "innerGård": "ja"
     },
     {
       "id": 4,
-      "typ": "lägenhet",
-      "addres": "Solnagatan 1, Solna ",
-      "kvm": 67,
-      "rum": 2,
-      "pris": 2700000,
-      "features": []
+      "bostadsTyp": "lägenhet",
+      "addres": "vargväg 3, Stockholm",
+      "utgångsPris": 2500000,
+      "antalRum": 2,
+      "boarea": 60,
+      "balkong": "ja",
+      "våning": 4,
+      "hiss": "ja",
+      "byggnadsÅr": "1998",
+      "förråd": "ja",
+      "parkering": "ja",
+      "innerGård": "ja"
     }
   ]
 }

@@ -10,12 +10,18 @@ export async function addHouse() {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       "id": 4,
-      "typ": "lägenhet",
-      "addres": "Solnagatan 1, Solna ",
-      "kvm": 67,
-      "rum": 2,
-      "pris": 2700000,
-      "features": []
+      "bostadsTyp": "lägenhet",
+      "addres": "vargväg 3, Stockholm",
+      "utgångsPris": 2500000,
+      "antalRum": 2,
+      "boarea": 60,
+      "balkong": "ja",
+      "våning": 4,
+      "hiss": "ja",
+      "byggnadsÅr": "1998",
+      "förråd": "ja",
+      "parkering": "ja",
+      "innerGård": "ja"
     })
   })
 
@@ -28,5 +34,6 @@ export async function getOneHouse(Id) {
   const data = await res.json()
   return data;
 }
+addHouse()
 
 //getAllHouses()
