@@ -1,0 +1,12 @@
+{
+  "name": "m-klarsajten_hushittarna",
+  "version": "1.0.0",
+  "description": "Final lab in the first programming course at KYH",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "type": "module",
+  "license": "ISC"
+}
