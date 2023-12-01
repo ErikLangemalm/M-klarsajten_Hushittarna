@@ -17,7 +17,7 @@ li>a {
 }
 
 li>a:hover {
-  color: red;
+  color: black;
 }
 
 nav ul {
@@ -28,6 +28,11 @@ nav ul {
 nav li {
   display: inline;
   margin-right: 20px;
+  text-align: center;
+}
+
+li:hover {
+  background-color: white;
 }
 
 main {
