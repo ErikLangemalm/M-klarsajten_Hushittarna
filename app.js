@@ -10,6 +10,7 @@ const routes = {
   "/": "index.html",
   "/maklare": "maklare.html",
   "/contact": "contact.html",
+  "/login": "logIn.html"
 };
 
 const handleLocation = async () => {
