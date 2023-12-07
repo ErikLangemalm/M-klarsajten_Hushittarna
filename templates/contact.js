@@ -1,0 +1,3 @@
+export default function () {
+  return `<h2>Kontakta oss</h2><p>Fyll i formuläret nedan för att kontakta oss:</p><form id='contactForm'><label for='name'>Namn: </label><input type='text' id='name' name='name' required><br><br><label for='email'>E-post:</label><input type='email' id='email' name='email' required><br><br><label for='message'>Meddelande:</label><br><textarea id='textarea' name= 'textarea' rows='4' cols= '50'></textarea><br><input type='submit' value='Skicka'></form>`
+}
