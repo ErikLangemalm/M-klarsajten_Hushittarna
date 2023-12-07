@@ -8,11 +8,9 @@ function router() {
     case "":
       $("main").html(index());
       break
-
     case "#contact":
       $("main").html(contact());
       break
-
     case "#logIn":
       $("main").html(logIn())
       break
