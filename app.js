@@ -1,36 +1,25 @@
-const route = async (event) => {
-  event.preventDefault();
-  const target = event.target;
-  const href = target.getAttribute('href');
-  window.history.pushState({}, "", href);
-  await handleLocation();
-};
+import contact from "./contact.js"
+import logIn from "./logIn.js"
+import index from "./index.js"
 
-const routes = {
-  "/": "index.html",
-  "/maklare": "maklare.html",
-  "/contact": "contact.html",
-  "/login": "logIn.html"
-};
+function router() {
+  switch (window.location.hash) {
+    case "":
+      $("main").html(index())
+      break
 
-const handleLocation = async () => {
-  const path = window.location.pathname;
-  const routePath = routes[path];
+    case "#sida2":
+      $("main").html(contact())
+      break
 
-  if (routePath) {
-    try {
-      const html = await fetch(routePath);
-      const text = await html.text();
-      document.getElementById("content").innerHTML = text;
-    } catch (error) {
-      console.error("Error loading content:", error);
-    }
-  } else {
-    console.error("Route not found:", path);
+    case "#sida3":
+      $("main").html(logIn())
+      break
+
+    default:
+      $("main").html("<h1>Sidan finns inte</h1>")
   }
-};
+}
 
-window.onpopstate = handleLocation;
-window.route = route;
-
-handleLocation();
+window.onload = router()
+window.onhashchange = router
