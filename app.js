@@ -4,7 +4,7 @@ import index from "/templates/index.js"
 import search1 from "/templates/search.js"
 import sellers from "/templates/sellers.js"
 
-
+/*---------------------------Funktioner för sökning-----------------------------------------*/
 function generateListingsPage() {
   let listingsPage = "<h2>Fastighetsannonser</h2>";
 
