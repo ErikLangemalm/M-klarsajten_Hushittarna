@@ -74,7 +74,7 @@ function displayResults(house) {
     resultsContainer.appendChild(houseDetails);
   }
 }
-
+/*---------------------SPA funktion----------------------*/
 function router() {
   switch (window.location.hash) {
     case "":
