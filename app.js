@@ -74,6 +74,26 @@ function displayResults(house) {
     resultsContainer.appendChild(houseDetails);
   }
 }
+
+/*-------------------------Log In functions-----------------------------*/
+async function fetchUsers() {
+  try {
+    const response = await fetch('http://localhost:3000/users'); // Adjust the URL based on your JSON server configuration
+    const jsonData = await response.json();
+    return jsonData;
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    return null;
+  }
+}
+
+
+async function validateUser() {
+  const users = fetchUsers();
+
+
+}
+
 /*---------------------SPA funktion----------------------*/
 function router() {
   switch (window.location.hash) {
