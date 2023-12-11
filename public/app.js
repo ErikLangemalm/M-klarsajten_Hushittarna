@@ -3,6 +3,7 @@ import logIn from "/templates/logIn.js"
 import index from "/templates/index.js"
 import search1 from "/templates/search.js"
 import sellers from "/templates/sellers.js"
+import listings from "/templates/listings.js"
 
 /*---------------------------Funktioner för sökning-----------------------------------------*/
 function generateListingsPage() {
@@ -21,7 +22,7 @@ function search() {
   $('#searchResult').text(searchResult);
 }
 
-async function fetchData() {
+export default async function fetchData() {
   try {
     const response = await fetch('http://localhost:3000/data'); // Adjust the URL based on your JSON server configuration
     const jsonData = await response.json();
@@ -74,8 +75,10 @@ function displayResults(house) {
     resultsContainer.appendChild(houseDetails);
   }
 }
+
+
 /*---------------------SPA funktion----------------------*/
-function router() {
+async function router() {
   switch (window.location.hash) {
     case "":
       $("main").html(index());
@@ -89,10 +92,10 @@ function router() {
     case "#search":
       $("main").html(search1())
       break;
-    case "":
-      $("main").html(sellers())
-    default:
-      $("main").html("<h1>Sidan finns inte</h1>")
+    case "#listings":
+      $("main").html(await listings());
+    //default:
+      //$("main").html("<h1>Sidan finns inte</h1>")
   }
 }
 
