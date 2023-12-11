@@ -60,5 +60,12 @@
       "parkering": "ja",
       "innerGård": "ja"
     }
+  ],
+  "users": [
+    {
+      "userID": 1,
+      "userName": "12345",
+      "password": "abcde"
+    }
   ]
 }

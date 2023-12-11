@@ -1,6 +1,6 @@
 import contact from "/templates/contact.js"
 import logIn from "/templates/logIn.js"
-import index from "/templates/index.js"
+import index1 from "/templates/index.js"
 import search1 from "/templates/search.js"
 import sellers from "/templates/sellers.js"
 
@@ -77,8 +77,8 @@ function displayResults(house) {
 /*---------------------SPA funktion----------------------*/
 function router() {
   switch (window.location.hash) {
-    case "":
-      $("main").html(index());
+    case "#home":
+      $("main").html(index1());
       break
     case "#contact":
       $("main").html(contact());
