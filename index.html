@@ -15,7 +15,7 @@
     <nav>
       <ul>
         <li><a href="#" data-page="home">Hem</a></li>
-        <li><a href="#" data-page="listings">Fastighetsannonser</a></li>
+        <li><a href="#"  data-page="listings" class="listings-link">Fastighetsannonser</a></li>
         <li><a href="#" data-page="contact">Kontakt</a></li>
         <li><a href="#" data-page="search">Sök</a></li>
       </ul>
@@ -33,7 +33,8 @@
 
     const pages = {
       home: "<h2>Välkommen till vår mäklarwebbplats!</h2><p>Vi hjälper dig hitta ditt drömhem.</p>",
-      listings: generateListingsPage(),
+      //listings: generateListingsPage(),
+      listings: "<body></body>",
       contact: "<h2>Kontakta oss</h2><p>Fyll i formuläret nedan för att kontakta oss:</p><form id='contactForm'><label for='name'>Namn: </label><input type='text' id='name' name='name' required><br><br><label for='email'>E-post:</label><input type='email' id='email' name='email' required><br><br><label for='message'>Meddelande:</label><br><textarea id='textarea' name= 'textarea' rows='4' cols= '50'></textarea><br><input type='submit' value='Skicka'></form>",
       search: "<h2>Sök</h2><p>Använd sökfältet nedan för att söka:</p><input type='text' id='searchInput' placeholder='Skriv in din sökning'><button onclick='searchHouses()'>Sök</button><p id='searchResult'></p>"
     };
@@ -46,14 +47,38 @@
     //klickhanterare för länkarna
     $(document).on('click', 'nav a', function (e) {
       e.preventDefault(); //förhindra standard beteende för länkar
+
       const pageId = $(this).data('page');
+      // Remove 'listings-page' class from body for all links
+      $('body').removeClass('listings-page');
+
+      // Check if the clicked link is the 'Fastighetsannonser' link
+      if (pageId === 'listings') {
+        loadListingsPage();
+      }
+      else{
+      removeHousesContainer();
       loadPage(pageId);
+      }
     });
 
+    function loadListingsPage() {
+        console.log("loadListingsPage called");
+        $('body').addClass('listings-page');
+        createHousesContainer();
+        loadPage('listings');
+      }
 
     function loadPage(page) {
       $('#content').html(pages[page]);
     }
+
+    function removeHousesContainer() {
+        const housesContainer = document.getElementById('housesContainer');
+        if (housesContainer) {
+          housesContainer.remove();
+        }
+      }
 
     //sidan med fastighetsannonser och ikoner
     function generateListingsPage() {
@@ -96,10 +121,10 @@
         console.error('No data available.');
         return;
       }
-      
+
       const searchInput = $('#searchInput').val().toLowerCase();
       console.log(searchInput)
-      
+
       const house = jsonData.find(house => house.antalRum === parseInt(searchInput));
       console.log(house)
       //console.log(house["bostadsTyp"]);
@@ -118,15 +143,92 @@
       if (Array.isArray(house)) {
         house.forEach(function (result) {
           var houseDetails = document.createElement('p');
-          houseDetails.textContent = `House ID: ${result.id}, Type: ${result.bostadsTyp}, Address: ${result.addres}, Price: ${result.utgångsPris}, Rooms: ${ result.antalRum }`;
+          houseDetails.textContent = `House ID: ${result.id}, Type: ${result.bostadsTyp}, Address: ${result.addres}, Price: ${result.utgångsPris}, Rooms: ${result.antalRum}`;
           resultsContainer.appendChild(houseDetails);
         });
       } else {
         var houseDetails = document.createElement('p');
-        houseDetails.textContent = `House ID: ${house.id}, Type: ${house.bostadsTyp}, Address: ${house.addres}, Price: ${house.utgångsPris}, Rooms: ${house.antalRum }`;
+        houseDetails.textContent = `House ID: ${house.id}, Type: ${house.bostadsTyp}, Address: ${house.addres}, Price: ${house.utgångsPris}, Rooms: ${house.antalRum}`;
         resultsContainer.appendChild(houseDetails);
       }
     }
+    function createHousesContainer() {
+        console.log("createHousesContainer called");
+
+        const isListingsPage = $('body').hasClass('listings-page');
+
+        if (isListingsPage) {
+          console.log("isListingsPage");
+
+          const container = document.createElement('div');
+          container.id = 'housesContainer';
+
+          const listingsPageDiv = document.createElement('div');
+          listingsPageDiv.classList.add('listings-page');
+          container.appendChild(listingsPageDiv);
+
+          document.body.appendChild(container);
+
+          displayAllHouses(container);
+        }
+      }
+
+   async function displayAllHouses(container) {
+      const isListingsPage = $('body').hasClass('listings-page');
+
+      if (!isListingsPage) {
+        console.log("no listing page");
+        return; // Do nothing if not on the listings page
+      }
+
+      let listingsPage = "<h2>Fastighetsannonser</h2>";
+
+      const jsonData = await fetchData();
+
+      if (!jsonData) {
+        console.error('No data available or invalid data format.');
+        return;
+      }
+
+      const housesContainer = document.createElement('div');
+      housesContainer.id = 'housesContainer';
+
+      jsonData.forEach((house) => {
+        console.log('House Data:', house); 
+        const houseContainer = document.createElement('div');
+        houseContainer.classList.add('house-container');
+
+        const houseElement = document.createElement('div');
+        houseElement.classList.add('house');
+
+        // Create an image element
+        const imageElement = document.createElement('img');
+        console.log('Image Path:', house.image);
+        imageElement.src = house.image || ''; // Use an empty string if image is undefined
+        imageElement.alt = `House ${house.id}`;
+        houseElement.appendChild(imageElement);
+
+        // Create the text details
+        const addressElement = document.createElement('p');
+        addressElement.classList.add('address');
+        addressElement.textContent = house.addres;
+
+        const detailsElement = document.createElement('p');
+        detailsElement.textContent = `${house.bostadsTyp} | ${house.boarea} Kvm | ${house.antalRum} Rum | ${house.utgångsPris} KR`;
+
+        houseElement.appendChild(addressElement);
+        houseElement.appendChild(detailsElement);
+
+        houseContainer.appendChild(houseElement);
+        housesContainer.appendChild(houseContainer);
+      });
+
+      if (isListingsPage) {
+        container.innerHTML = listingsPage;
+        container.appendChild(housesContainer);
+      }
+    }
+
   </script>
 </body>
 

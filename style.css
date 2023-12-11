@@ -39,7 +39,29 @@ footer {
 .listing-icon {
   margin-right: 5px;
 }
+#housesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px;
+}
+/* Styling for individual house elements */
+.house {
+  width: 50%;/* Set a width that allows two houses per row */
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin: 10px;
+}
 
+.house img {
+  max-width: 100%;
+  height: auto;
+}
+
+.address {
+  color: blue;
+}
 
 body {
   font-family: Arial, sans-serif;
