@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hushittarna - Mäklarvy</title>
+ <link rel="stylesheet" href="styleMaklarVy.css">
+
+</head>
+
+<body>
+
+  <h1>Mäklarvy - Förfrågningar för olika bostäder</h1>
+
+  <div id="requestsContainer">
+    <!-- Förfrågningar kommer att läggas till här dynamiskt med JavaScript -->
+  </div>
+
+  <script>
+    // Antag att du har en array med förfrågningar för olika bostäder
+    var requestsData = [
+      { id: 1, property: "Gatan 123", client: "John Doe", contact: "john@example.com" },
+      { id: 2, property: "Gatan 456", client: "Jane Doe", contact: "jane@example.com" },
+      // Lägg till fler förfrågningar enligt behov
+    ];
+
+    var requestsContainer = document.getElementById("requestsContainer");
+
+    // Loopa igenom förfråningarna och skapa HTML-element för varje förfrågan
+    requestsData.forEach(function (request) {
+      var requestCard = document.createElement("div");
+      requestCard.classList.add("request-card");
+      requestCard.innerHTML = `
+                <h3>Förfrågan #${request.id}</h3>
+                <p><strong>Bostad:</strong> ${request.property}</p>
+                <p><strong>Klient:</strong> ${request.client}</p>
+                <p><strong>Kontakt:</strong> ${request.contact}</p>
+            `;
+      requestsContainer.appendChild(requestCard);
+    });
+  </script>
+
+</body>
+
+</html>
