@@ -39,6 +39,19 @@ main {
   padding: 20px;
 }
 
+.box-style {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #3498db;
+  background-color: #eaf2f8;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.house p {
+  margin: 0;
+}
+
 footer {
   background-color: #ffffff;
   color: white;
@@ -49,14 +62,9 @@ footer {
   width: 100%;
 }
 
-/* annons ikoner, fixa senare */
-.listing-icon {
-  margin-right: 5px;
-}
-
-
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
+
