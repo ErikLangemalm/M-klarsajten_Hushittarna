@@ -1,9 +1,11 @@
-import contact from "/templates/contact.js"
-import logIn from "/templates/logIn.js"
-import index1 from "/templates/index.js"
-import search1 from "/templates/search.js"
-import sellers from "/templates/sellers.js"
-import listings from "/templates/listings.js"
+import contact from "/templates/contact.js";
+import logIn from "/templates/logIn.js";
+import index1 from "/templates/index.js";
+import search1 from "/templates/search.js";
+import sellers from "/templates/sellers.js";
+import listings from "/templates/listings.js";
+console.log("This message shows the files are propperly linked");
+
 
 /*---------------------------Funktioner för sökning-----------------------------------------*/
 function generateListingsPage() {

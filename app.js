@@ -1,3 +1,5 @@
+console.log("This message shows that the other app.js file is linked")
+
 import contact from "/templates/contact.js"
 import logIn from "/templates/logIn.js"
 import index1 from "/templates/index.js"
