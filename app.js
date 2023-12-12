@@ -89,7 +89,7 @@ async function fetchUsers() {
 
 
 async function validateUser() {
-  const users = fetchUsers();
+  const users = await fetchUsers();
 
 
 }
