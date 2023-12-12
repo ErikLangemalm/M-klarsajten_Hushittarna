@@ -2,7 +2,7 @@
 npm install -g json-server
 
 # Run json-server on the root directory
-json-server datbase.json
+json-server database.json
 
 # To open home page enter this URL in the browser
   http://localhost:3000

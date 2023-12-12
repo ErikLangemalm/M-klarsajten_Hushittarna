@@ -78,6 +78,37 @@ function displayResults(house) {
   }
 }
 
+/*---------------------log in funktion----------------------*/
+export default async function fetchUsers() {
+  try {
+    const response = await fetch('http://localhost:3000/users'); // Adjust the URL based on your JSON server configuration
+    const jsonUsers = await response.json();
+    return jsonUsers;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return null;
+  }
+}
+
+
+async function checkCredentials(event) {
+  event.preventDefault()
+  const userName = document.getElementById('userName').value
+  const passWord = document.getElementById('password').value
+
+  const users = await fetchUsers();
+
+  const userData = users.find(u => u.userName === userName && u.passWord === passWord);
+
+  if (!userData) {
+    console.log('Användaren hittades inte. Vänligen försök igen.');
+    return null;
+  } else {
+    console.log("You have been logged in. Have a nice day");
+  }
+
+}
+
 
 /*---------------------SPA funktion----------------------*/
 async function router() {
@@ -101,6 +132,7 @@ async function router() {
   }
 }
 
+window.checkCredentials = checkCredentials;
 window.searchHouses = searchHouses
 window.onload = router()
 window.onhashchange = router
