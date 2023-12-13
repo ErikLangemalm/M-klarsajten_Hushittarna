@@ -35,5 +35,3 @@ export default function showHouseDetails(index) {
     `);
   });
 }
-
-window.showHouseDetails = showHouseDetails
