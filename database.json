@@ -3,7 +3,7 @@
     {
       "id": 1,
       "bostadsTyp": "lägenhet",
-      "addres": "Test väg 1, Stockholm",
+      "adress": "Test väg 1, Stockholm",
       "utgångsPris": 2500000,
       "antalRum": 2,
       "boarea": 67,
@@ -18,7 +18,7 @@
     {
       "id": 2,
       "bostadsTyp": "villa",
-      "addres": "solna väg 1, Stockholm",
+      "adress": "solna väg 1, Stockholm",
       "utgångsPris": 3500000,
       "antalRum": 4,
       "boarea": 100,
@@ -33,7 +33,7 @@
     {
       "id": 3,
       "bostadsTyp": "radhus",
-      "addres": "lövgatan 9, Stockholm",
+      "adress": "lövgatan 9, Stockholm",
       "utgångsPris": 3100000,
       "antalRum": 3,
       "boarea": 84,
@@ -48,7 +48,7 @@
     {
       "id": 4,
       "bostadsTyp": "lägenhet",
-      "addres": "vargväg 3, Stockholm",
+      "adress": "vargväg 3, Stockholm",
       "utgångsPris": 2500000,
       "antalRum": 2,
       "boarea": 60,

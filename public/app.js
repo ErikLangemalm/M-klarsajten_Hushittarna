@@ -66,12 +66,12 @@ function displayResults(house) {
   if (Array.isArray(house)) {
     house.forEach(function (result) {
       var houseDetails = document.createElement('p');
-      houseDetails.textContent = `House ID: ${result.id}, Type: ${result.bostadsTyp}, Address: ${result.addres}, Price: ${result.utgångsPris}, Rooms: ${result.antalRum}`;
+      houseDetails.textContent = `House ID: ${result.id}, Type: ${result.bostadsTyp}, Address: ${result.adress}, Price: ${result.utgångsPris}, Rooms: ${result.antalRum}`;
       resultsContainer.appendChild(houseDetails);
     });
   } else {
     var houseDetails = document.createElement('p');
-    houseDetails.textContent = `House ID: ${house.id}, Type: ${house.bostadsTyp}, Address: ${house.addres}, Price: ${house.utgångsPris}, Rooms: ${house.antalRum}`;
+    houseDetails.textContent = `House ID: ${house.id}, Type: ${house.bostadsTyp}, Address: ${house.adress}, Price: ${house.utgångsPris}, Rooms: ${house.antalRum}`;
     resultsContainer.appendChild(houseDetails);
   }
 }
@@ -95,7 +95,7 @@ async function router() {
     case "#listings":
       $("main").html(await listings());
     //default:
-      //$("main").html("<h1>Sidan finns inte</h1>")
+    //$("main").html("<h1>Sidan finns inte</h1>")
   }
 }
 
