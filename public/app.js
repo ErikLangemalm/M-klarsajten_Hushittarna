@@ -79,7 +79,7 @@ function displayResults(house) {
 }
 
 /*---------------------log in funktion----------------------*/
-export default async function fetchUsers() {
+export async function fetchUsers() {
   try {
     const response = await fetch('http://localhost:3000/users'); // Adjust the URL based on your JSON server configuration
     const jsonUsers = await response.json();
