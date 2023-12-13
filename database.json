@@ -59,6 +59,98 @@
       "förråd": "ja",
       "parkering": "ja",
       "innerGård": "ja"
-    }
+    },
+    {
+      "id": 5,
+      "bostadsTyp": "lägenhet",
+      "addres": "hhjhh 3, Stockholm",
+      "utgångsPris": 2500000,
+      "antalRum": 2,
+      "boarea": 60,
+      "balkong": "ja",
+      "våning": 4,
+      "hiss": "ja",
+      "byggnadsÅr": "1998",
+      "förråd": "ja",
+      "parkering": "ja",
+      "innerGård": "ja"
+    },
+    {
+      "id": 6,
+      "bostadsTyp": "radhus",
+      "addres": "trägatan 13, Stockholm",
+      "utgångsPris": 2900000,
+      "antalRum": 3,
+      "boarea": 85,
+      "balkong": "ja",
+      "våning": 0,
+      "hiss": "nej",
+      "byggnadsÅr": "1996",
+      "förråd": "ja",
+      "parkering": "ja",
+      "innerGård": "ja"
+    },
+    {
+      "id": 7,
+      "bostadsTyp": "villa",
+      "addres": "viby 19, Stockholm",
+      "utgångsPris": 3900000,
+      "antalRum": 5,
+      "boarea": 120,
+      "balkong": "nej",
+      "våning": 0,
+      "hiss": "nej",
+      "byggnadsÅr": "1996",
+      "förråd": "ja",
+      "parkering": "ja",
+      "innerGård": "ja"
+    },
+    
+    {
+      "id": 8,
+      "bostadsTyp": "lägenhet",
+      "addres": "lötsjövägen 30, Stockholm",
+      "utgångsPris": 1900000,
+      "antalRum": 2,
+      "boarea": 63,
+      "balkong": "ja",
+      "våning": 1,
+      "hiss": "ja",
+      "byggnadsÅr": "1985",
+      "förråd": "ja",
+      "parkering": "ja",
+      "innerGård": "nej"
+    },
+      {
+        "id": 9,
+        "bostadsTyp": "radhus",
+        "addres": "kalmarvägen 3, uppsala",
+        "utgångsPris": 2900000,
+        "antalRum": 4,
+        "boarea": 100,
+        "balkong": "nej",
+        "våning": 0,
+        "hiss": "nej",
+        "byggnadsÅr": "2002",
+        "förråd": "ja",
+        "parkering": "ja",
+        "innerGård": "ja"
+      },
+        {
+          "id": 10,
+          "bostadsTyp": "radhus",
+          "addres": "enköpingsvägen 3, uppsala",
+          "utgångsPris": 3200000,
+          "antalRum": 4,
+          "boarea": 110,
+          "balkong": "nej",
+          "våning": 0,
+          "hiss": "nej",
+          "byggnadsÅr": "2016",
+          "förråd": "ja",
+          "parkering": "ja",
+          "innerGård": "ja"
+        }
+
   ]
 }
