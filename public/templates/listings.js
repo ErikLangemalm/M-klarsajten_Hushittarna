@@ -1,5 +1,5 @@
 import fetchData from "../../app.js"
-
+import showHouseDetails from "./houseDetail.js";
 export default async function listAllHouses() {
   const jsonData = await fetchData();
 
@@ -23,3 +23,4 @@ export default async function listAllHouses() {
 
   return listingsContent;
 }
+window.showHouseDetails = showHouseDetails
