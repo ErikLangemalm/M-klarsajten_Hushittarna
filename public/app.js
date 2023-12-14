@@ -104,14 +104,41 @@ async function checkCredentials(event) {
     console.log('Användaren hittades inte. Vänligen försök igen.');
     return null;
   } else {
+    const isLoggedIn = true;
+    sessionStorage.setItem('isLoggedIn', isLoggedIn);
     console.log("You have been logged in. Have a nice day");
   }
 
 }
 
+function handleLogout() {
+  // Remove the login state from sessionStorage
+  sessionStorage.removeItem('isLoggedIn');
+
+  // Perform any other actions needed after logout
+  // For example, redirect to the login page
+}
+
+function checkLoginState() {
+  const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+
+  // Perform actions based on the login state
+  if (isLoggedIn) {
+    // User is logged in, show logged-in content
+    $("#pre-log").hide();
+    $("#post-log").show();
+    console.log("User is logged in");
+  } else {
+    // User is not logged in, show login form or other content
+    $("#post-log").hide();
+    $("#pre-log").show();
+    console.log("User is not logged in");
+  }
+}
 
 /*---------------------SPA funktion----------------------*/
 async function router() {
+  checkLoginState();
   switch (window.location.hash) {
     case "#home":
       $("main").html(index1());
@@ -131,7 +158,7 @@ async function router() {
     //$("main").html("<h1>Sidan finns inte</h1>")
   }
 }
-
+window.handleLogout = handleLogout
 window.checkCredentials = checkCredentials;
 window.searchHouses = searchHouses
 window.onload = router()
