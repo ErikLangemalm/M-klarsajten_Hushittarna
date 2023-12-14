@@ -4,6 +4,7 @@ import index1 from "/templates/index.js";
 import search1 from "/templates/search.js";
 import sellers from "/templates/sellers.js";
 import listings from "/templates/listings.js";
+import maklarvy from "./templates/maklarvy.js";
 console.log("This message shows the files are propperly linked");
 
 
@@ -106,6 +107,8 @@ async function checkCredentials(event) {
   } else {
     const isLoggedIn = true;
     sessionStorage.setItem('isLoggedIn', isLoggedIn);
+    checkLoginState();
+    $("#content").html(index1());
     console.log("You have been logged in. Have a nice day");
   }
 
@@ -114,28 +117,52 @@ async function checkCredentials(event) {
 function handleLogout() {
   // Remove the login state from sessionStorage
   sessionStorage.removeItem('isLoggedIn');
-
+  $("#content").html(index1());
   // Perform any other actions needed after logout
   // For example, redirect to the login page
 }
 
 function checkLoginState() {
   const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
-
   // Perform actions based on the login state
   if (isLoggedIn) {
     // User is logged in, show logged-in content
     $("#pre-log").hide();
     $("#post-log").show();
+    $("#maklar").show()
     console.log("User is logged in");
   } else {
     // User is not logged in, show login form or other content
     $("#post-log").hide();
+    $("#maklar").hide()
     $("#pre-log").show();
     console.log("User is not logged in");
   }
 }
+/*---------------------maklarvy funktion----------------------*/
+// Antag att du har en array med förfrågningar för olika bostäder
+function genQuestions() {
+  var requestsData = [
+    { id: 1, property: "Gatan 123", client: "John Doe", contact: "john@example.com" },
+    { id: 2, property: "Gatan 456", client: "Jane Doe", contact: "jane@example.com" },
+    // Lägg till fler förfrågningar enligt behov
+  ];
 
+  var requestsContainer = document.getElementById("requestsContainer");
+
+  // Loopa igenom förfråningarna och skapa HTML-element för varje förfrågan
+  requestsData.forEach(function (request) {
+    var requestCard = document.createElement("div");
+    requestCard.classList.add("request-card");
+    requestCard.innerHTML = `
+                <h3>Förfrågan #${request.id}</h3>
+                <p><strong>Bostad:</strong> ${request.property}</p>
+                <p><strong>Klient:</strong> ${request.client}</p>
+                <p><strong>Kontakt:</strong> ${request.contact}</p>
+            `;
+    requestsContainer.appendChild(requestCard);
+  });
+}
 /*---------------------SPA funktion----------------------*/
 async function router() {
   checkLoginState();
@@ -154,10 +181,17 @@ async function router() {
       break;
     case "#listings":
       $("main").html(await listings());
+      break;
+    case "#maklarvy":
+      $('main').html(maklarvy())
+      genQuestions();
+      break;
     //default:
     //$("main").html("<h1>Sidan finns inte</h1>")
   }
 }
+
+
 window.handleLogout = handleLogout
 window.checkCredentials = checkCredentials;
 window.searchHouses = searchHouses
