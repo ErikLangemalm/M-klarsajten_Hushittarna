@@ -1,5 +1,5 @@
- import fetchData from "../../app.js"
-
+import fetchData from "../../app.js"
+import showHouseDetails from "./houseDetail.js";
 export default async function listAllHouses() {
   const jsonData = await fetchData();
 
@@ -10,9 +10,9 @@ export default async function listAllHouses() {
 
   let listingsContent = "<h2>Alla Annonsar</h2>";
 
-  jsonData.forEach((house) => {
+  jsonData.forEach((house, index) => {
     listingsContent += `
-      <div class="house-container box-style">
+      <div class="house-container box-style" onclick= showHouseDetails(${index}) data-house='${JSON.stringify(house)}'>
         <div class="house">
           <p class="address">${house.addres}</p>
           <p>${house.bostadsTyp} | ${house.boarea} Kvm | ${house.antalRum} Rum | ${house.utgångsPris} KR</p>
@@ -23,3 +23,4 @@ export default async function listAllHouses() {
 
   return listingsContent;
 }
+window.showHouseDetails = showHouseDetails
