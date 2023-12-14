@@ -6,21 +6,19 @@ export default function showHouseDetails(index) {
   // Fetch the details using the index or ID
   fetchData().then((jsonData) => {
     const houseDetails = jsonData[index];
-
     const detailsContainer = document.getElementById('content');
     detailsContainer.innerHTML = `
-      <h2 class="house-container box-style">${houseDetails.bostadsTyp} - ${houseDetails.addres}</h2>
-      <p class="house-container box-style">ID: ${houseDetails.id}</p>
-      <p class="house-container box-style">Price: ${houseDetails.utgångsPris} KR</p>
-      <p class="house-container box-style">Rooms: ${houseDetails.antalRum}</p>
-      <p class="house-container box-style">Area: ${houseDetails.boarea} Kvm</p>
-      <p class="house-container box-style">Outdoor Space: ${houseDetails.uteplats}</p>
-      <p class="house-container box-style">Floor: ${houseDetails.våning}</p>
-      <p class="house-container box-style">Elevator: ${houseDetails.hiss}</p>
-      <p class="house-container box-style">Year Built: ${houseDetails.byggnadsÅr}</p>
-      <p class="house-container box-style">Storage: ${houseDetails.förråd}</p>
-      <p class="house-container box-style">Parking: ${houseDetails.parkering}</p>
-      <p class="house-container box-style">Inner Yard: ${houseDetails.innerGård}</p>
+      <h2 class="house-container">${houseDetails.bostadsTyp} - ${houseDetails.addres}</h2>
+      <p class="house-container">Pris: ${houseDetails.utgångsPris} KR</p>
+      <p class="house-container">Antal Rum: ${houseDetails.antalRum}</p>
+      <p class="house-container">BoArea: ${houseDetails.boarea} Kvm</p>
+      <p class="house-container">Uteplats: ${houseDetails.uteplats}</p>
+      <p class="house-container">Våning: ${houseDetails.våning}</p>
+      <p class="house-container">Hiss: ${houseDetails.hiss}</p>
+      <p class="house-container">Bygg År: ${houseDetails.byggnadsÅr}</p>
+      <p class="house-container">Förråd: ${houseDetails.förråd}</p>
+      <p class="house-container">Parkering: ${houseDetails.parkering}</p>
+      <p class="house-container">InneGård: ${houseDetails.innerGård}</p>
     `;
 
     /*detailsPage.document.write(`
