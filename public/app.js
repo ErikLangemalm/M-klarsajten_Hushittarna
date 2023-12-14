@@ -32,13 +32,9 @@ export default async function fetchData() {
     return null;
   }
 }
-//Den funktion funkar bara med antalRum
+//New Search function, still WIP
 async function searchHouses() {
-  // Get user input values
   const jsonData = await fetchData();
-  console.log(Object.keys(jsonData))
-  console.log(Object.values(jsonData))
-  console.log(Object.entries(jsonData))
 
   if (!jsonData) {
     console.error('No data available.');
@@ -46,34 +42,26 @@ async function searchHouses() {
   }
 
   const searchInput = $('#searchInput').val().toLowerCase();
-  console.log(searchInput)
 
-  const house = jsonData.find(house => house.antalRum === parseInt(searchInput));
-  console.log(house)
-  //console.log(house["bostadsTyp"]);
-  displayResults(house)
+  const houses = jsonData.filter(house => house.antalRum === parseInt(searchInput));
+
+  displayResults(houses);
 }
 
-function displayResults(house) {
+function displayResults(houses) {
   var resultsContainer = document.getElementById('searchResult');
   resultsContainer.innerHTML = '';
 
-  if (!house) {
+  if (houses.length === 0) {
     resultsContainer.innerHTML = '<p>No matching houses found.</p>';
     return;
   }
 
-  if (Array.isArray(house)) {
-    house.forEach(function (result) {
-      var houseDetails = document.createElement('p');
-      houseDetails.textContent = `House ID: ${result.id}, Type: ${result.bostadsTyp}, Address: ${result.adress}, Price: ${result.utgångsPris}, Rooms: ${result.antalRum}`;
-      resultsContainer.appendChild(houseDetails);
-    });
-  } else {
+  houses.forEach(function (house) {
     var houseDetails = document.createElement('p');
-    houseDetails.textContent = `House ID: ${house.id}, Type: ${house.bostadsTyp}, Address: ${house.adress}, Price: ${house.utgångsPris}, Rooms: ${house.antalRum}`;
+    houseDetails.textContent = `House ID: ${house.id}, Type: ${house.bostadsTyp}, Addres: ${house.addres}, Price: ${house.utgångsPris}, Rooms: ${house.antalRum}`;
     resultsContainer.appendChild(houseDetails);
-  }
+  });
 }
 
 
