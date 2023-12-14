@@ -9,18 +9,18 @@ export default function showHouseDetails(index) {
 
     const detailsContainer = document.getElementById('content');
     detailsContainer.innerHTML = `
-      <h2 class="house-container box-style">${houseDetails.bostadsTyp} - ${houseDetails.addres}</h2>
-      <p class="house-container box-style">ID: ${houseDetails.id}</p>
-      <p class="house-container box-style">Price: ${houseDetails.utgångsPris} KR</p>
-      <p class="house-container box-style">Rooms: ${houseDetails.antalRum}</p>
-      <p class="house-container box-style">Area: ${houseDetails.boarea} Kvm</p>
-      <p class="house-container box-style">Outdoor Space: ${houseDetails.uteplats}</p>
-      <p class="house-container box-style">Floor: ${houseDetails.våning}</p>
-      <p class="house-container box-style">Elevator: ${houseDetails.hiss}</p>
-      <p class="house-container box-style">Year Built: ${houseDetails.byggnadsÅr}</p>
-      <p class="house-container box-style">Storage: ${houseDetails.förråd}</p>
-      <p class="house-container box-style">Parking: ${houseDetails.parkering}</p>
-      <p class="house-container box-style">Inner Yard: ${houseDetails.innerGård}</p>
+      <h2>${houseDetails.bostadsTyp} - ${houseDetails.addres}</h2>
+      <p>ID: ${houseDetails.id}</p>
+      <p>Price: ${houseDetails.utgångsPris} KR</p>
+      <p>Rooms: ${houseDetails.antalRum}</p>
+      <p">Area: ${houseDetails.boarea} Kvm</p>
+      <p">Outdoor Space: ${houseDetails.uteplats}</p>
+      <p">Floor: ${houseDetails.våning}</p>
+      <p">Elevator: ${houseDetails.hiss}</p>
+      <p">Year Built: ${houseDetails.byggnadsÅr}</p>
+      <p">Storage: ${houseDetails.förråd}</p>
+      <p">Parking: ${houseDetails.parkering}</p>
+      <p">Inner Yard: ${houseDetails.innerGård}</p>
     `;
 
     /*detailsPage.document.write(`
