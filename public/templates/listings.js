@@ -14,7 +14,7 @@ export default async function listAllHouses() {
     listingsContent += `
       <div class="house-container box-style" onclick= showHouseDetails(${index}) data-house='${JSON.stringify(house)}'>
         <div class="house">
-          <p class="address">${house.addres}</p>
+          <p class="address"><b>${house.addres}</b></p>
           <p>${house.bostadsTyp} | ${house.boarea} Kvm | ${house.antalRum} Rum | ${house.utgångsPris} KR</p>
         </div>
       </div>
