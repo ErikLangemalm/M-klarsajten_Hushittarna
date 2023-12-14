@@ -90,7 +90,7 @@ async function checkCredentials(event) {
   const userData = users.find(u => u.userName === userName && u.passWord === passWord);
 
   if (!userData) {
-    console.log('Användaren hittades inte. Vänligen försök igen.');
+    alert('Användaren hittades inte. Vänligen försök igen.');
     return null;
   } else {
     const isLoggedIn = true;
