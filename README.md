@@ -14,3 +14,7 @@ Password for brokers are användare = 12345, lösenord = abcde
 # lösernord för inlogg
       "userName": "12345",
       "passWord": "abcde"
+
+
+# medlemmar
+Walther - MicroBody på GitHub, sortering- och sökfuktion samt prototyp av hemsidan som inte användes.
