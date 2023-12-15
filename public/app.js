@@ -103,24 +103,19 @@ async function checkCredentials(event) {
 }
 
 function handleLogout() {
-  // Remove the login state from sessionStorage
   sessionStorage.removeItem('isLoggedIn');
   $("#content").html(index1());
-  // Perform any other actions needed after logout
-  // For example, redirect to the login page
 }
 
 function checkLoginState() {
   const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
-  // Perform actions based on the login state
+
   if (isLoggedIn) {
-    // User is logged in, show logged-in content
     $("#pre-log").hide();
     $("#post-log").show();
     $("#maklar").show()
     console.log("User is logged in");
   } else {
-    // User is not logged in, show login form or other content
     $("#post-log").hide();
     $("#maklar").hide()
     $("#pre-log").show();
